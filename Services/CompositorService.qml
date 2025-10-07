@@ -203,12 +203,16 @@ Singleton {
     }
   }
 
+  function lock() {
+    Quickshell.execDetached(["hyprlock"])
+  }
+
   function shutdown() {
-    Quickshell.execDetached(["shutdown", "-h", "now"])
+    Quickshell.execDetached(["systemctl", "poweroff"])
   }
 
   function reboot() {
-    Quickshell.execDetached(["reboot"])
+    Quickshell.execDetached(["systemctl", "reboot"])
   }
 
   function suspend() {
