@@ -48,6 +48,7 @@ NIconButton {
     return count
   }
 
+  visible: computeUnreadCount() > 0
   baseSize: Style.capsuleHeight
   compact: (Settings.data.bar.density === "compact")
   icon: Settings.data.notifications.doNotDisturb ? "bell-off" : "bell"
