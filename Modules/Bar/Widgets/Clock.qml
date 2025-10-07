@@ -121,9 +121,17 @@ Rectangle {
     onExited: {
       TooltipService.hide()
     }
-    onClicked: {
-      TooltipService.hide()
-      PanelService.getPanel("calendarPanel")?.toggle(this)
-    }
+    acceptedButtons: Qt.LeftButton | Qt.RightButton | Qt.MiddleButton
+    onClicked: mouse => {
+                 TooltipService.hide()
+                 if (mouse.button === Qt.LeftButton) {
+                   PanelService.getPanel("calendarPanel")?.toggle(this)
+                 } else if (mouse.button == Qt.RightButton) {
+                   Quickshell.execDetached(["gnome-clocks"])
+                 } else if (mouse.button == Qt.MiddleButton) {
+                   Logger.log("middle")
+                   Quickshell.execDetached(["gnome-calendar"])
+                 }
+               }
   }
 }
