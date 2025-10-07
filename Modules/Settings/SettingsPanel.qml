@@ -29,17 +29,13 @@ NPanel {
     Audio,
     Bar,
     ColorScheme,
-    OSD,
     Display,
-    Dock,
     General,
     Hooks,
-    Launcher,
     Location,
     Network,
     Notifications,
-    ScreenRecorder,
-    Wallpaper
+    ScreenRecorder
   }
 
   property int requestedTab: SettingsPanel.Tab.General
@@ -56,10 +52,6 @@ NPanel {
     GeneralTab {}
   }
   Component {
-    id: launcherTab
-    LauncherTab {}
-  }
-  Component {
     id: barTab
     BarTab {}
   }
@@ -70,10 +62,6 @@ NPanel {
   Component {
     id: displayTab
     DisplayTab {}
-  }
-  Component {
-    id: osdTab
-    OsdTab {}
   }
   Component {
     id: networkTab
@@ -88,10 +76,6 @@ NPanel {
     ColorSchemeTab {}
   }
   Component {
-    id: wallpaperTab
-    WallpaperTab {}
-  }
-  Component {
     id: screenRecorderTab
     ScreenRecorderTab {}
   }
@@ -102,10 +86,6 @@ NPanel {
   Component {
     id: hooksTab
     HooksTab {}
-  }
-  Component {
-    id: dockTab
-    DockTab {}
   }
   Component {
     id: notificationsTab
@@ -125,16 +105,6 @@ NPanel {
                      "icon": "settings-bar",
                      "source": barTab
                    }, {
-                     "id": SettingsPanel.Tab.Dock,
-                     "label": "settings.dock.title",
-                     "icon": "settings-dock",
-                     "source": dockTab
-                   }, {
-                     "id": SettingsPanel.Tab.Launcher,
-                     "label": "settings.launcher.title",
-                     "icon": "settings-launcher",
-                     "source": launcherTab
-                   }, {
                      "id": SettingsPanel.Tab.Audio,
                      "label": "settings.audio.title",
                      "icon": "settings-audio",
@@ -144,11 +114,6 @@ NPanel {
                      "label": "settings.display.title",
                      "icon": "settings-display",
                      "source": displayTab
-                   }, {
-                     "id": SettingsPanel.Tab.OSD,
-                     "label": "settings.osd.title",
-                     "icon": "settings-osd",
-                     "source": osdTab
                    }, {
                      "id": SettingsPanel.Tab.Notifications,
                      "label": "settings.notifications.title",
@@ -169,11 +134,6 @@ NPanel {
                      "label": "settings.color-scheme.title",
                      "icon": "settings-color-scheme",
                      "source": colorSchemeTab
-                   }, {
-                     "id": SettingsPanel.Tab.Wallpaper,
-                     "label": "settings.wallpaper.title",
-                     "icon": "settings-wallpaper",
-                     "source": wallpaperTab
                    }, {
                      "id": SettingsPanel.Tab.ScreenRecorder,
                      "label": "settings.screen-recorder.title",
@@ -438,6 +398,7 @@ NPanel {
           color: Color.mSurfaceVariant
           border.color: Color.mOutline
           border.width: Math.max(1, Style.borderS * scaling)
+          clip: true
 
           ColumnLayout {
             id: contentLayout
@@ -517,6 +478,8 @@ NPanel {
                       horizontalPolicy: ScrollBar.AlwaysOff
                       verticalPolicy: ScrollBar.AsNeeded
                       padding: Style.marginL * scaling
+                      clip: true
+
                       Component.onCompleted: {
                         root.activeScrollView = scrollView
                       }
