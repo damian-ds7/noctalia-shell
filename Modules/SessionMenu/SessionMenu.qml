@@ -14,7 +14,7 @@ NPanel {
   id: root
 
   preferredWidth: 320 * Style.uiScaleRatio
-  preferredHeight: 360 * Style.uiScaleRatio
+  preferredHeight: 290 * Style.uiScaleRatio
   panelAnchorHorizontalCenter: true
   panelAnchorVerticalCenter: true
   panelKeyboardFocus: true
