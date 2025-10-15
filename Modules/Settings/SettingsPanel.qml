@@ -33,7 +33,7 @@ NPanel {
     Network,
     Notifications,
     ScreenRecorder,
-    UserInterface,
+    UserInterface
   }
 
   property int requestedTab: SettingsPanel.Tab.General
