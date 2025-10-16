@@ -196,6 +196,18 @@ NPanel {
     }
 
     Shortcut {
+      sequence: "Tab"
+      onActivated: ui.selectNextWrapped()
+      enabled: root.opened
+    }
+
+    Shortcut {
+      sequence: "Shift+Tab"
+      onActivated: ui.selectPreviousWrapped()
+      enabled: root.opened
+    }
+
+    Shortcut {
       sequence: "Home"
       onActivated: ui.selectFirst()
       enabled: root.opened
@@ -248,6 +260,14 @@ NPanel {
 
     function selectLast() {
       root.selectLast()
+    }
+
+    function selectNextWrapped() {
+      root.selectNextWrapped()
+    }
+
+    function selectPreviousWrapped() {
+      root.selectPreviousWrapped()
     }
 
     function activate() {
