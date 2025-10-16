@@ -19,9 +19,6 @@ import qs.Services
 import qs.Widgets
 
 // Core Modules
-import qs.Modules.Background
-import qs.Modules.Dock
-import qs.Modules.LockScreen
 import qs.Modules.SessionMenu
 
 // Bar & Bar Components
@@ -34,13 +31,9 @@ import qs.Modules.Bar.WiFi
 
 // Panels & UI Components
 import qs.Modules.ControlCenter
-import qs.Modules.Launcher
 import qs.Modules.Notification
-import qs.Modules.OSD
 import qs.Modules.Settings
 import qs.Modules.Toast
-import qs.Modules.Wallpaper
-import qs.Modules.SetupWizard
 
 ShellRoot {
   id: shellRoot
@@ -80,8 +73,6 @@ ShellRoot {
     sourceComponent: Item {
       Component.onCompleted: {
         Logger.i("Shell", "---------------------------")
-        WallpaperService.init()
-        AppThemeService.init()
         ColorSchemeService.init()
         BarWidgetRegistry.init()
         LocationService.init()
@@ -92,26 +83,13 @@ ShellRoot {
         BatteryService.init()
       }
 
-      Background {}
-      Overview {}
-      ScreenCorners {}
       Bar {}
-      Dock {}
 
       Notification {
         id: notification
       }
 
-      LockScreen {
-        id: lockScreen
-        Component.onCompleted: {
-          // Save a ref. to our lockScreen so we can access it  easily
-          PanelService.lockScreen = lockScreen
-        }
-      }
-
       ToastOverlay {}
-      OSD {}
 
       // IPCService is treated as a service
       // but it's actually an Item that needs to exists in the shell.
@@ -119,11 +97,6 @@ ShellRoot {
 
       // ------------------------------
       // All the NPanels
-      Launcher {
-        id: launcherPanel
-        objectName: "launcherPanel"
-      }
-
       ControlCenterPanel {
         id: controlCenterPanel
         objectName: "controlCenterPanel"
@@ -157,15 +130,6 @@ ShellRoot {
       BluetoothPanel {
         id: bluetoothPanel
         objectName: "bluetoothPanel"
-      }
-
-      WallpaperPanel {
-        id: wallpaperPanel
-        objectName: "wallpaperPanel"
-      }
-      BatteryPanel {
-        id: batteryPanel
-        objectName: "batteryPanel"
       }
     }
   }
