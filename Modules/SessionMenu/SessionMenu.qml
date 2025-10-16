@@ -88,10 +88,7 @@ NPanel {
 
     switch (action) {
     case "lock":
-      // Access lockScreen directly like IPCManager does
-      if (!lockScreen.active) {
-        lockScreen.active = true
-      }
+      CompositorService.lock()
       break
     case "suspend":
       // Check if we should lock before suspending
