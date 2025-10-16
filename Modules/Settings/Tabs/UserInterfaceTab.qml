@@ -33,13 +33,6 @@ ColumnLayout {
       onToggled: checked => Settings.data.ui.tooltipsEnabled = checked
     }
 
-    NToggle {
-      label: I18n.tr("settings.user-interface.compact-lockscreen.label")
-      description: I18n.tr("settings.user-interface.compact-lockscreen.description")
-      checked: Settings.data.general.compactLockScreen
-      onToggled: checked => Settings.data.general.compactLockScreen = checked
-    }
-
     NDivider {
       Layout.fillWidth: true
       Layout.topMargin: Style.marginL
@@ -177,77 +170,6 @@ ColumnLayout {
         description: I18n.tr("settings.user-interface.animation-disable.description")
         checked: Settings.data.general.animationDisabled
         onToggled: checked => Settings.data.general.animationDisabled = checked
-      }
-    }
-  }
-
-  NDivider {
-    Layout.fillWidth: true
-    Layout.topMargin: Style.marginXL
-    Layout.bottomMargin: Style.marginXL
-  }
-
-  // Dock
-  ColumnLayout {
-    spacing: Style.marginL
-    Layout.fillWidth: true
-
-    NHeader {
-      label: I18n.tr("settings.general.screen-corners.section.label")
-      description: I18n.tr("settings.general.screen-corners.section.description")
-    }
-
-    NToggle {
-      label: I18n.tr("settings.general.screen-corners.show-corners.label")
-      description: I18n.tr("settings.general.screen-corners.show-corners.description")
-      checked: Settings.data.general.showScreenCorners
-      onToggled: checked => Settings.data.general.showScreenCorners = checked
-    }
-
-    NToggle {
-      label: I18n.tr("settings.general.screen-corners.solid-black.label")
-      description: I18n.tr("settings.general.screen-corners.solid-black.description")
-      checked: Settings.data.general.forceBlackScreenCorners
-      onToggled: checked => Settings.data.general.forceBlackScreenCorners = checked
-    }
-
-    ColumnLayout {
-      spacing: Style.marginXXS
-      Layout.fillWidth: true
-
-      NLabel {
-        label: I18n.tr("settings.general.screen-corners.radius.label")
-        description: I18n.tr("settings.general.screen-corners.radius.description")
-      }
-
-      RowLayout {
-        spacing: Style.marginL
-        Layout.fillWidth: true
-
-        NValueSlider {
-          Layout.fillWidth: true
-          from: 0
-          to: 2
-          stepSize: 0.01
-          value: Settings.data.general.screenRadiusRatio
-          onMoved: value => Settings.data.general.screenRadiusRatio = value
-          text: Math.floor(Settings.data.general.screenRadiusRatio * 100) + "%"
-        }
-
-        // Reset button container
-        Item {
-          Layout.preferredWidth: 30 * Style.uiScaleRatio
-          Layout.preferredHeight: 30 * Style.uiScaleRatio
-
-          NIconButton {
-            icon: "refresh"
-            baseSize: Style.baseWidgetSize * 0.8
-            tooltipText: I18n.tr("settings.general.screen-corners.radius.reset")
-            onClicked: Settings.data.general.screenRadiusRatio = 1.0
-            anchors.right: parent.right
-            anchors.verticalCenter: parent.verticalCenter
-          }
-        }
       }
     }
   }
