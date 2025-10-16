@@ -316,14 +316,16 @@ Singleton {
     }
   }
 
+  function lock() {
+    Quickshell.execDetached(["hyprlock"])
+  }
+
   function shutdown() {
-    Logger.i("Compositor", "Shutdown requested")
-    Quickshell.execDetached(["shutdown", "-h", "now"])
+    Quickshell.execDetached(["systemctl", "poweroff"])
   }
 
   function reboot() {
-    Logger.i("Compositor", "Reboot requested")
-    Quickshell.execDetached(["reboot"])
+    Quickshell.execDetached(["systemctl", "reboot"])
   }
 
   function suspend() {
