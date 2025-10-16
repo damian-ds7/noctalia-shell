@@ -28,13 +28,14 @@ NPanel {
   // Navigation properties
   property int selectedIndex: 0
   readonly property var powerOptions: [{
+      "action": "logout",
+      "icon": "logout",
+      "title": I18n.tr("session-menu.logout"),
+      "subtitle": I18n.tr("session-menu.logout-subtitle")
+    }, {
       "action": "lock",
       "icon": "lock",
       "title": I18n.tr("session-menu.lock")
-    }, {
-      "action": "lockAndSuspend",
-      "icon": "lock-pause",
-      "title": I18n.tr("session-menu.lock-and-suspend")
     }, {
       "action": "suspend",
       "icon": "suspend",
@@ -43,10 +44,6 @@ NPanel {
       "action": "reboot",
       "icon": "reboot",
       "title": I18n.tr("session-menu.reboot")
-    }, {
-      "action": "logout",
-      "icon": "logout",
-      "title": I18n.tr("session-menu.logout")
     }, {
       "action": "shutdown",
       "icon": "shutdown",
@@ -95,9 +92,6 @@ NPanel {
       if (!lockScreen.active) {
         lockScreen.active = true
       }
-      break
-    case "lockAndSuspend":
-      CompositorService.lockAndSuspend()
       break
     case "suspend":
       CompositorService.suspend()
