@@ -327,6 +327,10 @@ Singleton {
     }
   }
 
+  function lock() {
+    Quickshell.execDetached(["hyprlock"])
+  }
+
   function shutdown() {
     Logger.i("Compositor", "Shutdown requested")
     Quickshell.execDetached(["sh", "-c", "systemctl poweroff || loginctl poweroff"])
