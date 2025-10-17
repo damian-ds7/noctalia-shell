@@ -134,10 +134,9 @@ Rectangle {
                  if (mouse.button === Qt.LeftButton) {
                    PanelService.getPanel("calendarPanel")?.toggle(this)
                  } else if (mouse.button == Qt.RightButton) {
-                   Quickshell.execDetached(["gnome-clocks"])
-                 } else if (mouse.button == Qt.MiddleButton) {
-                   Logger.log("middle")
                    Quickshell.execDetached(["gnome-calendar"])
+                 } else if (mouse.button == Qt.MiddleButton) {
+                   Quickshell.execDetached(["gnome-clocks"])
                  }
                }
   }
