@@ -81,6 +81,7 @@ ShellRoot {
         HooksService.init()
         BluetoothService.init()
         BatteryService.init()
+        IdleInhibitorService.init()
       }
 
       Bar {}
