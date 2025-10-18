@@ -34,7 +34,7 @@ NBox {
       readonly property int dim: Math.round(256 * Style.uiScaleRatio)
       id: bgImage
       anchors.fill: parent
-      source: MediaService.trackArtUrl || WallpaperService.getWallpaper(Screen.name)
+      source: MediaService.trackArtUrl
       sourceSize: Qt.size(dim, dim)
       fillMode: Image.PreserveAspectCrop
 
