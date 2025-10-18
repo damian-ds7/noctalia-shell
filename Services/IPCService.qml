@@ -167,39 +167,6 @@ Item {
     }
   }
 
-  // Wallpaper IPC: trigger a new random wallpaper
-  IpcHandler {
-    target: "wallpaper"
-    function toggle() {
-      if (Settings.data.wallpaper.enabled) {
-        wallpaperPanel.toggle()
-      }
-    }
-
-    function random() {
-      if (Settings.data.wallpaper.enabled) {
-        WallpaperService.setRandomWallpaper()
-      }
-    }
-
-    function set(path: string, screen: string) {
-      if (screen === "all" || screen === "") {
-        screen = undefined
-      }
-      WallpaperService.changeWallpaper(path, screen)
-    }
-
-    function toggleAutomation() {
-      Settings.data.wallpaper.randomEnabled = !Settings.data.wallpaper.randomEnabled
-    }
-    function disableAutomation() {
-      Settings.data.wallpaper.randomEnabled = false
-    }
-    function enableAutomation() {
-      Settings.data.wallpaper.randomEnabled = true
-    }
-  }
-
   IpcHandler {
     target: "batteryManager"
 
