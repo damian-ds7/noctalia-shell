@@ -8,7 +8,7 @@ import qs.Commons
 Singleton {
   id: root
 
-  property bool shouldRun: BarService.hasAudioVisualizer || (PanelService.getPanel("controlCenterPanel") === PanelService.openedPanel) || PanelService.lockScreen.active
+  property bool shouldRun: BarService.hasAudioVisualizer || (PanelService.getPanel("controlCenterPanel") === PanelService.openedPanel)
   property var values: Array(barsCount).fill(0)
   property int barsCount: 48
   property var config: ({
