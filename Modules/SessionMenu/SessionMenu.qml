@@ -13,8 +13,8 @@ import qs.Widgets
 NPanel {
   id: root
 
-  preferredWidth: 320 * Style.uiScaleRatio
-  preferredHeight: 290 * Style.uiScaleRatio
+  preferredWidth: 400 * Style.uiScaleRatio
+  preferredHeight: 340 * Style.uiScaleRatio
   panelAnchorHorizontalCenter: true
   panelAnchorVerticalCenter: true
   panelKeyboardFocus: true
@@ -31,7 +31,6 @@ NPanel {
       "action": "logout",
       "icon": "logout",
       "title": I18n.tr("session-menu.logout"),
-      "subtitle": I18n.tr("session-menu.logout-subtitle")
     }, {
       "action": "lock",
       "icon": "lock",
