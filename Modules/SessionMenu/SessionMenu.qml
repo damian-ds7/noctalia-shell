@@ -90,12 +90,7 @@ NPanel {
       CompositorService.lock()
       break
     case "suspend":
-      // Check if we should lock before suspending
-      if (Settings.data.general.lockOnSuspend) {
-        CompositorService.lockAndSuspend()
-      } else {
-        CompositorService.suspend()
-      }
+      CompositorService.suspend()
       break
     case "reboot":
       CompositorService.reboot()
