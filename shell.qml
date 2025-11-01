@@ -142,9 +142,14 @@ ShellRoot {
         objectName: "bluetoothPanel"
       }
 
-BatteryPanel {
+      BatteryPanel {
         id: batteryPanel
         objectName: "batteryPanel"
+      }
+
+      AudioPanel {
+        id: audioPanel
+        objectName: "audioPanel"
       }
     }
   }
