@@ -46,6 +46,7 @@ NIconButton {
     return count;
   }
 
+  visible: computeUnreadCount() > 0
   baseSize: Style.capsuleHeight
   applyUiScale: false
   density: Settings.data.bar.density
